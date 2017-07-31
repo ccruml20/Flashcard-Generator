@@ -1,5 +1,6 @@
 var ClozeCard = require("./ClozeCard.js");
 var BasicCard = require("./BasicCard.js");
+var fs = require('fs');
 var inquirer = require('inquirer');
 var clozeArray = [];
 var basicArray = [];
@@ -30,15 +31,15 @@ function flashcardChoice() {
 		name: "flashcards"
 	}]).then(function(answers) {
 		if (answers.flashcards === "Cloze") {
-			clozeFunction();
+			makeCloze();
 		} else {
-			basicFunction();
+			makeBasic();
 		}
 	});
 };
 
 
-function clozeFunction() {
+function makeCloze() {
 	inquirer.prompt([{
 		type: 'input',
 		name: 'text',
@@ -56,11 +57,27 @@ function clozeFunction() {
         console.log(newCloze.fullText());
         clozeArray.push(newCloze);
         console.log(clozeArray);
+        makeAnotherCloze();
     });
 }
 
+function makeAnotherCloze(){
+	inquirer.prompt([{
+		type: "list",
+		message: "Make another Card or Study",
+		choices: ["Make", "Study"],
+		name: "flashcards"
+	}]).then(function(answers) {
+		if (answers.flashcards === "Make") {
+			makeCloze();
+		} else {
+			play();
+		}
+	});
+}
 
-function basicFunction() {
+
+function makeBasic() {
 	inquirer.prompt([{
 		type: 'input',
 		name: 'front',
@@ -77,8 +94,24 @@ function basicFunction() {
         console.log("\nFlashcard Front:  ", newBasic.front);
         console.log("Flashcard Back:  ", newBasic.back);
         basicArray.push(newBasic);
+        makeAnotherBasic();
         console.log(basicArray);
     });
+}
+
+function makeAnotherBasic(){
+	inquirer.prompt([{
+		type: "list",
+		message: "Make another Card or Study",
+		choices: ["Make", "Study"],
+		name: "flashcards"
+	}]).then(function(answers) {
+		if (answers.flashcards === "Make") {
+			makeBasic();
+		} else {
+			play();
+		}
+	});
 }
 
 function play(){
@@ -98,35 +131,64 @@ function play(){
 
 
 function playCloze(){
-		inquirer.prompt([{
+	inquirer.prompt([{
 		type: 'input',
 		name: 'clozeGuess',
-		message: clozeArray[0].partial()
+		message: clozeArray[i].partial()
 	},
 	]).then(function(info) {
- 		var answer = info.clozeGuess;
- 		console.log(answer);
-    });
+		var answer = info.clozeGuess;
+		if(clozeArray[i].back === answer){
+			console.log("Correct");
+			if(i < (clozeArray.length -1)){
+				i++;
+				playCloze();
+			}else{
+				start();
+			}
+		}else{
+			console.log("Wrong Answer");
+			if(i < (clozeArray.length -1)){
+				i++;
+				playCloze();
+			}else{
+				start();
+			}
+		}
+		console.log(answer);
+	});
 }
 
 
 function playBasic(){
-		inquirer.prompt([{
+	inquirer.prompt([{
 		type: 'input',
 		name: 'basicGuess',
 		message: basicArray[i].front
 	},
-	]).then(function(info) {
- 		var answer = info.basicGuess;
- 		if(basicArray[i].back === answer){
- 			console.log("Correct");
-
- 		}else{
- 			console.log("Wrong Answer");
- 		}
- 		console.log(answer);
-    });
+	]).then(function(info) {	
+		var answer = info.basicGuess;
+		if(basicArray[i].back === answer){
+			console.log("Correct");
+			if(i < (basicArray.length -1)){
+				i++;
+				playBasic();
+			}else{
+				start();
+			}
+		}else{
+			console.log("Wrong Answer");
+			if(i < (basicArray.length -1)){
+				i++;
+				playBasic();
+			}else{
+				start();
+			}
+		}
+		console.log(answer);
+	});
 }
+
 
 start();
 

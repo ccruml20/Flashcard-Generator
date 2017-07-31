@@ -1,0 +1,139 @@
+[
+    {
+        "text": "was the first president of the United States.",
+        "cloze": "George Washington"
+    },
+    {
+        "text": "+9=14",
+        "cloze": "5"
+    },
+    {
+        "text": "was the U.S. president who abolished slavery",
+        "cloze": "Abraham Lincoln"
+    }
+][
+    {
+        "text": "is the only one up",
+        "cloze": "chase"
+    }
+][
+    {
+        "text": "is the only one up",
+        "cloze": "chase"
+    },
+    {
+        "text": "+9=10",
+        "cloze": "1`"
+    }
+][
+    {
+        "text": "is the only one up",
+        "cloze": "chase"
+    },
+    {
+        "text": "+9=10",
+        "cloze": "1`"
+    },
+    {
+        "text": "is the man",
+        "cloze": "me"
+    }
+][
+    {
+        "text": "is the only one up",
+        "cloze": "chase"
+    },
+    {
+        "text": "+9=10",
+        "cloze": "1`"
+    },
+    {
+        "text": "is the man",
+        "cloze": "me"
+    },
+    {
+        "text": "cant fight it",
+        "cloze": "me"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "wash"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "wash"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "wash"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    },
+    {
+        "text": "the is man",
+        "cloze": "chase"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "washington"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "washington"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    }
+][
+    {
+        "text": "is the pres",
+        "cloze": "washington"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    },
+    {
+        "text": "is the man",
+        "cloze": "chase"
+    }
+][
+    {
+        "text": "pres",
+        "cloze": "washington"
+    }
+][
+    {
+        "text": "pres",
+        "cloze": "washington"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    }
+][
+    {
+        "text": "pres",
+        "cloze": "washington"
+    },
+    {
+        "text": "abolished",
+        "cloze": "lincoln"
+    },
+    {
+        "text": "is the man",
+        "cloze": "chase"
+    }
+]
